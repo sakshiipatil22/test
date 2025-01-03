@@ -1,6 +1,6 @@
 
 from fastapi import FastAPI
-import uvicorn
+import uvicorn # type: ignore
 
 
 app = FastAPI()
