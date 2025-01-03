@@ -11,7 +11,7 @@ def hello():
     return "Bye"
 
 @app.get("/bye")
-def hello():
+def bye():
     return "Hello"
 
 # Run the application when the script is executed directly
