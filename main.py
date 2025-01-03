@@ -10,6 +10,10 @@ app = FastAPI()
 def hello():
     return "Bye"
 
+@app.get("/bye")
+def hello():
+    return "Hello"
+
 # Run the application when the script is executed directly
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=1000, reload=True)
