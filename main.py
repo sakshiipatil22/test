@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import uvicorn
 
 app = FastAPI()
@@ -36,11 +36,20 @@ def hello():
 
 @app.get("/get-name")
 def get_name(name: str):
-    for person in data:
-        if person["name"].lower() == name.lower():
-            return person
-    return {"error": "Name not found"}
-
+    try:
+        for person in data:
+            if person.get("name", "").lower() == name.lower():
+                return {
+                    "name": person.get("name", "Unknown"),
+                    "address": person.get("address", "Not Provided"),
+                    "dob": person.get("dob", "Not Provided"),
+                    "number": person.get("number", "Not Available"),
+                }
+        raise HTTPException(status_code=404, detail="Name not found")
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        return {"error": "An unexpected error occurred", "details": f"Name not found:{e}"}
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=1000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8085, reload=True)
