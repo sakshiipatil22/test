@@ -38,18 +38,15 @@ def hello():
 def get_name(name: str):
     try:
         for person in data:
-            if person.get("name", "").lower() == name.lower():
-                return {
-                    "name": person.get("name", "Unknown"),
-                    "address": person.get("address", "Not Provided"),
-                    "dob": person.get("dob", "Not Provided"),
-                    "number": person.get("number", "Not Available"),
-                }
-        raise HTTPException(status_code=404, detail="Name not found")
-    except HTTPException as e:
-        raise e
+            if person["name"].lower() == name.lower():
+                return person
+        
+        raise Exception("Name not found in the dataset")
+
     except Exception as e:
-        return {"error": "An unexpected error occurred", "details": f"Name not found:{e}"}
+        error_message = str(e) if str(e) else "An unexpected error occurred"
+        status_code = 404 if str(e) else 500
+        raise HTTPException(status_code=status_code, detail=error_message)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8085, reload=True)
