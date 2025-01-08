@@ -1,4 +1,7 @@
 #merging list without duplicates
+#Output: Merge list without  duplicates :  [23, 45, 65, 31, 1, 89, 67, 8, 90]
+
+
 list1 = [23, 45, 65, 31, 1, 89]
 list2 = [67, 89, 23, 45, 8, 90]
 

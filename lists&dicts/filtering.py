@@ -1,5 +1,6 @@
-
 #Create a Python program to filter a list of dictionaries based on a specific key's value.
+#Output:[{'name': 'sakshi', 'role': 'Engineer'}, {'name': 'rahul', 'role': 'CEO'}]
+
 dict= [{'name': 'sakshi', 'role': 'Engineer'}, 
      {'name': 'soham', 'role': 'Manager'}, 
      {'name': 'aditi', 'role': 'Director'}, 

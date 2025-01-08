@@ -1,0 +1,1 @@
+#Write a Python program to create a dictionary from a list where keys are indices and values are elements.

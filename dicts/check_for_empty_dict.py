@@ -1,8 +1,11 @@
 #Create a program to check if a dictionary is empty.
- 
-dict = {}
+#Output: The dictionary is not empty
 
-print("The original dictionary : " + str(dict))
-test = not bool(dict)
 
-print("Is dictionary empty ? : " + str(test))
+dict1 = {1:"sakshi"}
+if len(dict1) == 0:
+    print("The dictionary is empty")
+    
+else:
+    print("The dictionary is not empty")
+    

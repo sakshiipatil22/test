@@ -1,10 +1,8 @@
 #Write a Python program to remove a specific key from a dictionary
+# Output: {'a': 1, 'c': 3}
 
-dict = {1:"xyz", 2:"abc", 3:"efg", 4:"hij"}
-print("Actual dict : ",dict)
-x= {}
-
-for key, value in dict.items():
-    if key!= 2:
-        x[key] = value
-print(x)
+dict = {'a': 1, 'b': 2, 'c': 3}
+for key in list(dict.keys()):  
+    if key == 'b':
+        del dict[key]
+print(dict)

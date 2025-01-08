@@ -1,4 +1,5 @@
 #Second largest number from the list
+#Output: Second largest element is : 89
 import heapq
 
 a = [10, 20, 4, 45, 90, 89]
